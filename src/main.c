@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 20:08:35 by antmoren          #+#    #+#             */
-/*   Updated: 2023/02/02 11:38:04 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/02/03 20:37:21 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,26 +39,51 @@ int32_t	main(void)
 	return (EXIT_SUCCESS);
 }
  */
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
+
 
 // Driver code
-#include <stdio.h>
 
-int	main(int argc, char **argv)
+char	*get_next_line(int fd)
 {
-	int		fd;
-	char	*str;
-
-	fd = open(argv[1], O_RDONLY);
-	str = get_next_line(fd);
-	ft_printf("%d\n", fd);
-	ft_printf("%s\n", str);
+	char	*ret = malloc(9999);
+	char	c;
+	int		i = 0;
+	int		cpt = 0;
+	if (fd < 0)
+		return (NULL);
+	while ((cpt = read(fd, &c, 1)) > 0)
+	{
+		ret[i] = c;
+		i++;
+		if (c == '\n')
+			break ;
+	}
+	if (i == 0 || cpt < 0)
+	{
+		free(ret);
+		return (NULL);
+	}
+	ret[i] = '\0';
+	return (ret);
+}
+// Main is here only for testing, do not let him in exam
+int		main(int argc, char **argv)
+{
+	int 	fd = 0;
+	char	*line;
+	if (argc > 1)
+		fd = open(argv[1], O_RDONLY);
+	line = get_next_line(fd);
+	while (line != NULL)
+	{
+		printf("line |%s", line);
+		free(line);
+		line = get_next_line(fd);
+	}
 	return (0);
 }
 
-/* int	main(int argc, char **argv)
+ /* int	main(int argc, char **argv)
 {
 	FILE	*demo;
 	int		display;
@@ -67,6 +92,7 @@ int	main(int argc, char **argv)
 	// Creates a file "demo_file"
 	// with file access as read mode
 	demo = fopen(argv[1], "r");
+
 	// loop to extract every characters
 	while (1)
 	{
@@ -81,4 +107,5 @@ int	main(int argc, char **argv)
 	// closes the file pointed by demo
 	fclose(demo);
 	return (0);
-} */
+} 
+ */
