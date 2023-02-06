@@ -6,7 +6,7 @@
 #    By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 10:11:34 by antmoren          #+#    #+#              #
-#    Updated: 2023/01/08 11:27:18 by antmoren         ###   ########.fr        #
+#    Updated: 2023/02/06 20:46:54 by antmoren         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -73,8 +73,6 @@ SRC	=		ft_isalnum.c				\
 			ft_print_unsigned.c			\
 			ft_printf_utils.c			\
 			ft_printf.c					\
-			get_next_line_bonus.c		\
-			get_next_line_utils_bonus.c	\
 			ft_issign.c 				\
 			ft_nbabs.c 					\
 
@@ -84,6 +82,7 @@ SRC	=		ft_isalnum.c				\
 SRCS	= $(addprefix $(SRC_PATH), $(SRC))
 OBJ		= $(SRC:.c=.o)
 OBJS	= $(addprefix $(OBJ_PATH), $(OBJ))
+
 # RULES
 # 1. "Your Makefile must at least contain the rules $(NAME), all, clean, fclean and re."
 # 2. Compile the sources (*.c) to object files (*.o)
@@ -95,7 +94,7 @@ all: $(OBJ_PATH) $(NAME)
 $(NAME)	:	$(OBJS) 
 			@$(AR) $(NAME) $(OBJS)
 			@$(RANLIB) $(NAME)
-			@echo "\n 📚 Libft | 🖨  ft_printf | 📝 get_next_line compiled! ✅"
+			@echo "\n 📚 Libft | 🖨  ft_printf compiled! ✅"
 
 
 $(OBJ_PATH):
@@ -113,12 +112,12 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 # Clean all the output files (*.o)
 clean: 
 	@$(RM) $(OBJ_PATH)
-	@echo "\n 📚 Libft | 🖨  ft_printf | 📝 get_next_line executable files removed! 🗑"
+	@echo "\n 📚 Libft | 🖨  ft_printf executable files removed! 🗑"
 
 # Clean all the output files (*.o) and the library file
 fclean: clean
 	@$(RM) $(NAME)
-	@echo "\n 📚 Libft | 🖨  ft_printf | 📝 get_next_line generated files removed! 🗑"
+	@echo "\n 📚 Libft | 🖨  ft_printf generated files removed! 🗑"
 
 # Clean object files (*.o) and the binary file; 
 re: fclean all

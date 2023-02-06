@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fdf.h                                              :+:      :+:    :+:   */
+/*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 20:09:53 by antmoren          #+#    #+#             */
-/*   Updated: 2023/02/03 19:56:01 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/02/06 20:56:52 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,15 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <string.h>
+
+struct s_window {
+	void	*mlx;
+	void	*win;
+	void	*img;
+	int		*data;
+	int		bpp;
+	int		size_line;
+	int		endian;
+} t_window;
 
 #endif

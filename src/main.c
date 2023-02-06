@@ -6,13 +6,18 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 20:08:35 by antmoren          #+#    #+#             */
-/*   Updated: 2023/02/03 20:37:21 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/02/06 21:14:23 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-/* static mlx_image_t	*img;
+
+# define WIDTH 800
+# define HEIGHT 600
+
+
+ static mlx_image_t	*img;
 
 void	hook(void *param)
 {
@@ -37,12 +42,12 @@ int32_t	main(void)
 	mlx_loop(mlx);
 	mlx_terminate(mlx);
 	return (EXIT_SUCCESS);
-}
- */
+} 
+
 
 
 // Driver code
-
+/* 
 char	*get_next_line(int fd)
 {
 	char	*ret = malloc(9999);
@@ -80,32 +85,7 @@ int		main(int argc, char **argv)
 		free(line);
 		line = get_next_line(fd);
 	}
+
+
 	return (0);
-}
-
- /* int	main(int argc, char **argv)
-{
-	FILE	*demo;
-	int		display;
-
-	// pointer demo to FILE
-	// Creates a file "demo_file"
-	// with file access as read mode
-	demo = fopen(argv[1], "r");
-
-	// loop to extract every characters
-	while (1)
-	{
-		// reading file
-		display = fgetc(demo);
-		// end of file indicator
-		if (feof(demo))
-			break ;
-		// displaying every characters
-		printf("%c", display);
-	}
-	// closes the file pointed by demo
-	fclose(demo);
-	return (0);
-} 
- */
+} */
