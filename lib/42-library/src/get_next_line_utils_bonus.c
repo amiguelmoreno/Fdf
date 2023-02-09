@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdecorte <jdecorte@student.42.fr>          +#+  +:+       +#+        */
+/*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/19 11:14:11 by jdecorte          #+#    #+#             */
-/*   Updated: 2021/10/19 11:59:38 by jdecorte         ###   ########.fr       */
+/*   Created: 2022/05/06 13:40:36 by antmoren          #+#    #+#             */
+/*   Updated: 2022/05/30 12:02:55 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,43 +14,44 @@
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
-	int		sizetotal;
-	char	*res;
+	char	*s1ands2;
+	int		length;
 	int		i;
 	int		j;
 
-	i = 0;
-	sizetotal = ft_strlen(s1) + ft_strlen(s2);
-	res = malloc(sizeof(char) * (sizetotal + 1));
-	if (!res || !s1 || !s2)
+	if (s1 == NULL || s2 == NULL)
 		return (NULL);
-	while (s1[i] != 0)
+	length = ft_strlen((char *)s1) + ft_strlen((char *)s2);
+	s1ands2 = malloc(sizeof(char) * (length + 1));
+	if (!s1ands2)
+		return (NULL);
+	i = 0;
+	while (s1[i])
 	{
-		res[i] = s1[i];
+		s1ands2[i] = s1[i];
 		i++;
 	}
 	j = 0;
-	while (s2[j] != 0)
+	while (s2[j])
 	{
-		res[i] = s2[j];
-		i++;
+		s1ands2[i + j] = s2[j];
 		j++;
 	}
-	res[sizetotal] = 0;
-	return (res);
+	s1ands2[i + j] = '\0';
+	return (s1ands2);
 }
 
-char	*ft_strchr(const char *string, int searchedChar )
+char	*ft_strchr(const char *str, int c)
 {
-	char	*str;
-
-	str = (char *)string;
-	while (*str != searchedChar && *str != 0)
+	while (*str)
+	{
+		if (*str == (unsigned char)c)
+			return ((char *)str);
 		str++;
-	if (*str == searchedChar)
-		return (str);
-	else
-		return (NULL);
+	}
+	if ((unsigned char)c == '\0')
+		return ((char *)str);
+	return (0);
 }
 
 void	ft_bzero(void *s, size_t n)
@@ -78,12 +79,12 @@ void	*ft_calloc(size_t elementCount, size_t elementSize)
 	return (res);
 }
 
-size_t	ft_strlen(const char *theString)
+size_t	ft_strlen(const char *str)
 {
-	int	i;
+	int	c;
 
-	i = 0;
-	while (theString[i])
-		i++;
-	return (i);
+	c = 0;
+	while (str[c])
+		c++;
+	return (c);
 }

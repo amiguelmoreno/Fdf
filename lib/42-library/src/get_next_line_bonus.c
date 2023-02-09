@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jdecorte <jdecorte@student.42.fr>          +#+  +:+       +#+        */
+/*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/19 11:09:06 by jdecorte          #+#    #+#             */
-/*   Updated: 2021/10/19 11:59:29 by jdecorte         ###   ########.fr       */
+/*   Created: 2022/05/06 13:40:32 by antmoren          #+#    #+#             */
+/*   Updated: 2022/05/31 08:43:00 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
 
-char	*fr_free(char *buffer, char *buf)
+char	*ft_free(char *buffer, char *buf)
 {
 	char	*temp;
 
@@ -62,7 +62,7 @@ char	*ft_line(char *buffer)
 		i++;
 	}
 	if (buffer[i] && buffer[i] == '\n')
-		line[i++] = '\n';
+		line[i] = '\n';
 	return (line);
 }
 
@@ -81,10 +81,11 @@ char	*read_file(int fd, char *res)
 		if (byte_read == -1)
 		{
 			free(buffer);
+			free(res);
 			return (NULL);
 		}
 		buffer[byte_read] = 0;
-		res = fr_free(res, buffer);
+		res = ft_free(res, buffer);
 		if (ft_strchr(buffer, '\n'))
 			break ;
 	}
@@ -94,10 +95,10 @@ char	*read_file(int fd, char *res)
 
 char	*get_next_line(int fd)
 {
-	static char	*buffer[OPEN_MAX];
+	static char	*buffer[4096];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (NULL);
 	buffer[fd] = read_file(fd, buffer[fd]);
 	if (!buffer[fd])
@@ -106,3 +107,16 @@ char	*get_next_line(int fd)
 	buffer[fd] = ft_next(buffer[fd]);
 	return (line);
 }
+/*
+int	main(void)
+{
+	int	fd;
+
+	fd = open("file.txt", O_RDONLY);
+	printf("%s\n", get_next_line(fd));
+	printf("%s\n", get_next_line(fd));
+	printf("%s\n", get_next_line(fd));
+	close(fd);
+	return (0);
+}
+*/

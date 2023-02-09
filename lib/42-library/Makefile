@@ -6,7 +6,7 @@
 #    By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/22 10:11:34 by antmoren          #+#    #+#              #
-#    Updated: 2023/02/07 19:27:27 by antmoren         ###   ########.fr        #
+#    Updated: 2023/02/08 10:51:05 by antmoren         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -96,7 +96,7 @@ all: $(OBJ_PATH) $(NAME)
 $(NAME)	:	$(OBJS) 
 			@$(AR) $(NAME) $(OBJS)
 			@$(RANLIB) $(NAME)
-			@echo "\n 📚 Libft | 🖨  ft_printf compiled! ✅"
+			@echo "\n 📚 42 Library compiled! ✅"
 
 
 $(OBJ_PATH):
@@ -114,16 +114,16 @@ $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 # Clean all the output files (*.o)
 clean: 
 	@$(RM) $(OBJ_PATH)
-	@echo "\n 📚 Libft | 🖨  ft_printf executable files removed! 🗑"
+#@echo "\n 📚 42 Library  executable files removed! 🗑"
 
 # Clean all the output files (*.o) and the library file
 fclean: clean
 	@$(RM) $(NAME)
-	@echo "\n 📚 Libft | 🖨  ft_printf generated files removed! 🗑"
+#@echo "\n 📚 42 Library  generated files removed! 🗑"
 
 # Clean object files (*.o) and the binary file; 
 re: fclean all
-	@echo "\n 🔄  ✅ Cleaned and rebuilt everything from 42-library"
+	@echo "\n 🔄  ✅ Cleaned and rebuilt everything from 42 Library"
 
 .PHONY:	all bonus clean fclean re
 
