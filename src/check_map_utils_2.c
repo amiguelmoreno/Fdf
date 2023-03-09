@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_map.c                                        :+:      :+:    :+:   */
+/*   check_map_utils_2.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/07 20:34:25 by antmoren          #+#    #+#             */
-/*   Updated: 2023/03/05 19:46:28 by antmoren         ###   ########.fr       */
+/*   Created: 2023/03/03 19:38:05 by antmoren          #+#    #+#             */
+/*   Updated: 2023/03/05 14:38:23 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
-void	check_map(t_map *map, char *argv)
+void	check_counters_map(t_map *map)
 {
-	map->collect_cnt = 0;
-	map->exit_cnt = 0;
-	map->player_cnt = 0;
-	map->path = argv;
-	check_path(map->path);
-	set_width_and_heigth(map);
-	save_map(map);
-	check_border_map(map);
-	check_content_map(map);
-	//check_valid_route(map);
+	if (map->collect_cnt < 1 || map->exit_cnt != 1 || map->player_cnt != 1)
+	{
+		print_error("There are missing or exceding elements");
+	}
 }

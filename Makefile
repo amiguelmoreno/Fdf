@@ -6,36 +6,48 @@
 #    By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/01 19:36:18 by antmoren          #+#    #+#              #
-#    Updated: 2023/02/09 20:22:36 by antmoren         ###   ########.fr        #
+#    Updated: 2023/03/09 15:12:03 by antmoren         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= so_long
-CFLAGS	= -Wall -Wextra -Werror
-LIBMLX	= ./lib/MLX42
-LIBFT	= ./lib/42-library
+NAME	=	so_long
+CC		=	gcc
+CFLAGS	=	-Wall -Wextra -Werror
+LIBMLX	=	./lib/MLX42
+LIBFT	=	./lib/42-library
+HEADERS	=	-I ./include -I $(LIBMLX)/include -I $(LIBFT)
+#LIBS	=	-lglfw -L /Users/$(USER)/.brew/opt/glfw/lib/ $(LIBMLX)/libmlx42.a $(LIBFT)/42lib.a 
+LIBS	=	-lglfw -L /opt/homebrew/opt/glfw/lib/ $(LIBMLX)/libmlx42.a $(LIBFT)/42lib.a
 
-HEADERS	= -I ./include -I $(LIBMLX)/include -I $(LIBFT)
-LIBS	= -lglfw -L /Users/$(USER)/.brew/opt/glfw/lib/ $(LIBMLX)/libmlx42.a $(LIBFT)/42lib.a 
-#LIBS	= -lglfw -L /opt/homebrew/opt/glfw/lib/ $(LIBMLX)/libmlx42.a $(LIBFT)/42lib.a
-SRCS	= $(shell find ./src -iname "*.c")
-OBJS	= ${SRCS:.c=.o}
+SRC_PATH 		= 	./src/
+OBJ_PATH 		= 	./obj/
 
-BOLD	= \033[1m
-BLACK	= \033[30;1m
-RED		= \033[31;1m
-GREEN	= \033[32;1m
-YELLOW	= \033[33;1m
-BLUE	= \033[34;1m
-MAGENTA	= \033[35;1m
-CYAN	= \033[36;1m
-WHITE	= \033[37;1m
-RESET	= \033[0m
+SRCS	= 	main.c				\
+			check_map_utils.c	\
+			check_map_utils_2.c	\
+			check_map.c 		\
+			map.c 				\
+			movement.c 			\
+			textures.c 			\
+			utils.c 			\
 
-# //= Recipes =//
+OBJS 	= $(addprefix $(OBJ_PATH), $(SRCS:.c=.o))
 
-all: libft libmlx $(NAME)
-	@echo "hey"
+
+
+BOLD	=	\033[1m
+BLACK	=	\033[30;1m
+RED		=	\033[31;1m
+GREEN	=	\033[32;1m
+YELLOW	=	\033[33;1m
+BLUE	=	\033[34;1m
+MAGENTA	=	\033[35;1m
+CYAN	=	\033[36;1m
+WHITE	=	\033[37;1m
+RESET	=	\033[0m
+
+all: libft libmlx $(OBJ_PATH) $(NAME)
+	@echo "make all"
 
 libft:
 	@$(MAKE) -C $(LIBFT)
@@ -45,15 +57,18 @@ libmlx:
 	@$(MAKE) -C $(LIBMLX)
 	@echo "\n 💻 MLX42 compiled! ✅"
 
-%.o: %.c
-	@$(CC) $(CFLAGS) -o $@ -c $< $(HEADERS)
+$(OBJ_PATH)%.o: $(SRC_PATH)%.c
+	@$(CC) $(CFLAGS) $(INCS) $(HEADERS) -c $< -o $@
+
+$(OBJ_PATH): 
+	@mkdir $(OBJ_PATH)
 
 $(NAME): $(OBJS)
-	@$(CC) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBS) $(HEADERS) -o $(NAME)
 	@echo "\n 👾 $(NAME) compiled! ✅"
 
 clean:
-	@rm -f $(OBJS)
+	@rm -rf $(OBJ_PATH)
 	@$(MAKE) -C $(LIBFT) clean
 	@$(MAKE) -C $(LIBMLX) clean
 	@echo "\n  👾 $(NAME) executable files removed! 🗑"
