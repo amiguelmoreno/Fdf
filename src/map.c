@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 14:38:53 by antmoren          #+#    #+#             */
-/*   Updated: 2023/03/09 11:33:40 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/03/14 18:29:56 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,5 +65,5 @@ void	create_map(t_game *game)
 		}
 		y++;
 	}
-	//load_content_map(game);
+	load_content_map(game);
 }

@@ -47,15 +47,12 @@ WHITE	=	\033[37;1m
 RESET	=	\033[0m
 
 all: libft libmlx $(OBJ_PATH) $(NAME)
-	@echo "make all"
 
 libft:
 	@$(MAKE) -C $(LIBFT)
-	@echo "\n 📚 42 Library compiled! ✅"
 
 libmlx:
 	@$(MAKE) -C $(LIBMLX)
-	@echo "\n 💻 MLX42 compiled! ✅"
 
 $(OBJ_PATH)%.o: $(SRC_PATH)%.c
 	@$(CC) $(CFLAGS) $(INCS) $(HEADERS) -c $< -o $@

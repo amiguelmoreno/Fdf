@@ -75,7 +75,7 @@ void			check_map(t_map *map, char *argv);
 
 /* Movement */
 void			rotate_player(int n, t_game *game);
-void			movement(mlx_key_data_t keydata, void *param);
+void			move_player(mlx_key_data_t keydata, void *param);
 
 /* Check Map Utils*/
 void			check_content_map(t_map *map);

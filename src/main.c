@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 20:08:35 by antmoren          #+#    #+#             */
-/*   Updated: 2023/03/09 12:23:41 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/03/14 18:01:24 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,7 @@ int	main(int argc, char **argv)
 		if (!game.mlx)
 			exit(EXIT_FAILURE);
 		create_map(&game);
-		mlx_key_hook(game.mlx, &movement, &game);
-		//mlx_loop_hook(game.mlx, ft_hook, game.mlx);
+		mlx_key_hook(game.mlx, &move_player, &game);
 		mlx_loop(game.mlx);
 		mlx_terminate(game.mlx);
 	}
