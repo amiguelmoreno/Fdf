@@ -6,7 +6,7 @@
 #    By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/01 19:36:18 by antmoren          #+#    #+#              #
-#    Updated: 2023/03/09 15:12:03 by antmoren         ###   ########.fr        #
+#    Updated: 2023/03/14 19:49:43 by antmoren         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,6 @@ OBJ_PATH 		= 	./obj/
 
 SRCS	= 	main.c				\
 			check_map_utils.c	\
-			check_map_utils_2.c	\
 			check_map.c 		\
 			map.c 				\
 			movement.c 			\
