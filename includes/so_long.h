@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 20:09:53 by antmoren          #+#    #+#             */
-/*   Updated: 2023/03/16 09:52:50 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/03/29 19:49:07 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ void			check_content_map(t_map *map);
 void			check_border_map(t_map *map);
 void			set_width_and_heigth(t_map *map);
 void			save_map(t_map *map);
-void			check_path(char *argv);
+void 			check_path(char *argv);
 
 /* Movement */
 void			move_player(mlx_key_data_t keydata, void *param);
@@ -89,5 +89,6 @@ void			rotate_player(int n, t_game *game);
 void			print_error(char *message);
 char			*read_line(int fd);
 void			finish_game(t_game *game);
+void 			free_map(char **map);
 
 #endif

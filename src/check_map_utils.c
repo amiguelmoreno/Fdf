@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:58:36 by antmoren          #+#    #+#             */
-/*   Updated: 2023/03/15 19:15:50 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/03/29 19:45:22 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,8 @@ void	save_map(t_map *map)
 	int	y;
 
 	y = 0;
-	map->coords = ft_calloc(map->height, map->width);
+	printf("%d\n", map->height);
+	map->coords = ft_calloc(map->height + 1, map->width);
 	fd = open(map->path, O_RDONLY);
 	if (fd == -1)
 		print_error("Something went wrong opening the file");
@@ -111,12 +112,14 @@ void	set_width_and_heigth(t_map *map)
 
 void	check_path(char *argv)
 {
-	int	file_length;
-
+	int file_length;
+	
 	file_length = ft_strlen(argv);
-	if (ft_strncmp(ft_substr(argv, file_length - 4, file_length), ".ber", 4)
-		|| ft_strncmp(argv, ".ber", file_length) == 0)
+	char *aux = ft_substr(argv, file_length - 4, file_length);
+
+	if (ft_strncmp(aux, ".ber", 4) || ft_strncmp(argv, ".ber", file_length) == 0)
 	{
 		print_error("Wrong file format");
 	}
+	free(aux);
 }

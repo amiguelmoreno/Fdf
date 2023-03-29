@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 21:17:17 by antmoren          #+#    #+#             */
-/*   Updated: 2023/03/09 12:04:19 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/03/29 19:48:44 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,16 @@ char	*read_line(int fd)
 		free(line);
 		return (NULL);
 	}
+}
+
+void	free_map(char **map)
+{
+	int	i;
+
+	i = 0;
+	while (map[i])
+		free(map[i++]);
+	free(map);
 }
 
 void	finish_game(t_game *game)

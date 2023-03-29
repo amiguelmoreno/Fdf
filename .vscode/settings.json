@@ -1,6 +1,7 @@
 {
     "files.associations": {
-        "UTILS.C": "cpp"
+        "UTILS.C": "cpp",
+        "so_long.h": "c"
     },
     "editor.defaultFormatter": "keyhr.42-c-format"
 }

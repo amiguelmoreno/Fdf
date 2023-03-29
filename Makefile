@@ -6,7 +6,7 @@
 #    By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/01 19:36:18 by antmoren          #+#    #+#              #
-#    Updated: 2023/03/14 19:49:43 by antmoren         ###   ########.fr        #
+#    Updated: 2023/03/29 20:18:34 by antmoren         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,8 @@ CFLAGS	=	-Wall -Wextra -Werror
 LIBMLX	=	./lib/MLX42
 LIBFT	=	./lib/42-library
 HEADERS	=	-I ./include -I $(LIBMLX)/include -I $(LIBFT)
-#LIBS	=	-lglfw -L /Users/$(USER)/.brew/opt/glfw/lib/ $(LIBMLX)/libmlx42.a $(LIBFT)/42lib.a 
-LIBS	=	-lglfw -L /opt/homebrew/opt/glfw/lib/ $(LIBMLX)/libmlx42.a $(LIBFT)/42lib.a
+LIBS	=	-lglfw -L /Users/$(USER)/.brew/opt/glfw/lib/ $(LIBMLX)/libmlx42.a $(LIBFT)/42lib.a 
+#LIBS	=	-lglfw -L /opt/homebrew/opt/glfw/lib/ $(LIBMLX)/libmlx42.a $(LIBFT)/42lib.a
 
 SRC_PATH 		= 	./src/
 OBJ_PATH 		= 	./obj/
@@ -29,6 +29,7 @@ SRCS	= 	main.c				\
 			movement.c 			\
 			textures.c 			\
 			utils.c 			\
+			check_route			\
 
 OBJS 	= $(addprefix $(OBJ_PATH), $(SRCS:.c=.o))
 
