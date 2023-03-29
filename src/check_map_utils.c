@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 15:58:36 by antmoren          #+#    #+#             */
-/*   Updated: 2023/03/15 19:06:51 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/03/15 19:15:50 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,13 +78,12 @@ void	save_map(t_map *map)
 	fd = open(map->path, O_RDONLY);
 	if (fd == -1)
 		print_error("Something went wrong opening the file");
-	map->coords[y] = read_line(fd);
-	while (map->coords[y] != NULL && y < map->height)
+	while (y < map->height)
 	{
+		map->coords[y] = read_line(fd);
 		if (map->width != (int)ft_strlen(map->coords[y]))
 			print_error("Map is not rectangular");
 		y++;
-		map->coords[y] = read_line(fd);
 	}
 	close(fd);
 }

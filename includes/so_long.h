@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 20:09:53 by antmoren          #+#    #+#             */
-/*   Updated: 2023/03/14 19:49:27 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/03/16 09:52:50 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,7 @@ void			check_path(char *argv);
 
 /* Movement */
 void			move_player(mlx_key_data_t keydata, void *param);
+void			rotate_player(int n, t_game *game);
 
 /* Utils */
 void			print_error(char *message);

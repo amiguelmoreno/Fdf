@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 20:34:25 by antmoren          #+#    #+#             */
-/*   Updated: 2023/03/15 14:43:34 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/03/16 09:58:54 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,5 @@ void	check_map(t_map *map, char *argv)
 	check_border_map(map);
 	check_content_map(map);
 	printf("height is: %d, width is: %d\n", map->height, map->width);
-	printf("line 5 is %c\n", map->coords[4][0]);
-	printf("line 5 is %c\n", map->coords[4][1]);
-	printf("line 5 is %c\n", map->coords[4][2]);
-	printf("line 5 is %c\n", map->coords[4][3]);
-	printf("line 5 is %c\n", map->coords[4][4]);
 	// check_valid_route(map);
 }

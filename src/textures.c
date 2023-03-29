@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 14:35:16 by antmoren          #+#    #+#             */
-/*   Updated: 2023/03/14 18:35:10 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/03/16 09:49:34 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,20 +56,18 @@ void	load_content_map(t_game *game)
 	y = 0;
 	while (y < game->map.height)
 	{
+		x = 0;
+		while (x < game->map.width)
 		{
-			x = 0;
-			while (x < game->map.width)
-			{
-				if (game->map.coords[y][x] == 'C')
-					load_texture_map(0, game, x, y);
-				if (game->map.coords[y][x] == 'P')
-					load_texture_map(1, game, x, y);
-				if (game->map.coords[y][x] == 'E')
-					load_texture_map(2, game, x, y);
-				x++;
-			}
-			y++;
+			if (game->map.coords[y][x] == 'C')
+				load_texture_map(0, game, x, y);
+			if (game->map.coords[y][x] == 'P')
+				load_texture_map(1, game, x, y);
+			if (game->map.coords[y][x] == 'E')
+				load_texture_map(2, game, x, y);
+			x++;
 		}
+		y++;
 	}
 }
 
