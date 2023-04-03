@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 21:17:17 by antmoren          #+#    #+#             */
-/*   Updated: 2023/03/29 19:48:44 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/04/03 11:41:05 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,34 +16,6 @@ void	print_error(char *message)
 {
 	ft_printf("\033[0;31mError\n%s\n", message);
 	exit(1);
-}
-
-char	*read_line(int fd)
-{
-	char	*line;
-	char	c;
-	int		i;
-
-	i = 0;
-	line = (char *)malloc(MAX_LINE_LENGTH * sizeof(char));
-	while (read(fd, &c, 1) > 0 && c != '\n')
-	{
-		line[i++] = c;
-		if (i == MAX_LINE_LENGTH - 1)
-		{
-			break ;
-		}
-	}
-	line[i] = '\0';
-	if (i > 0)
-	{
-		return (line);
-	}
-	else
-	{
-		free(line);
-		return (NULL);
-	}
 }
 
 void	free_map(char **map)

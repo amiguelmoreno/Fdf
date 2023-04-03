@@ -1,7 +1,14 @@
 {
     "files.associations": {
         "UTILS.C": "cpp",
-        "so_long.h": "c"
+        "so_long.h": "c",
+        "__tree": "c",
+        "map": "c",
+        "unordered_map": "c",
+        "chrono": "c",
+        "stack": "c",
+        "__bit_reference": "c",
+        "bitset": "c"
     },
     "editor.defaultFormatter": "keyhr.42-c-format"
 }

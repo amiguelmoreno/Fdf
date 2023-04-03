@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/05 14:35:16 by antmoren          #+#    #+#             */
-/*   Updated: 2023/03/16 09:49:34 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/04/03 12:00:50 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	load_content_map(t_game *game)
 	int	y;
 
 	y = 0;
-	while (y < game->map.height)
+	while (y < game->map.heigth)
 	{
 		x = 0;
 		while (x < game->map.width)
@@ -74,26 +74,26 @@ void	load_content_map(t_game *game)
 void	load_texture_map(int l, t_game *game, int x, int y)
 {
 	if (l == 0)
-		mlx_image_to_window(game->mlx, game->img.collectable, x
-				* game->img_size, y * game->img_size);
+		mlx_image_to_window(game->mlx, game->img.collectable,
+			x * game->img_size, y * game->img_size);
 	if (l == 1)
 	{
 		game->player_pos_x = x;
 		game->player_pos_y = y;
-		mlx_image_to_window(game->mlx, game->img.player_right, x
-				* game->img_size, y * game->img_size);
-		mlx_image_to_window(game->mlx, game->img.player_left, x
-				* game->img_size, y * game->img_size);
-		mlx_image_to_window(game->mlx, game->img.player_front, x
-				* game->img_size, y * game->img_size);
-		mlx_image_to_window(game->mlx, game->img.player_back, x
-				* game->img_size, y * game->img_size);
+		mlx_image_to_window(game->mlx, game->img.player_right,
+			x * game->img_size, y * game->img_size);
+		mlx_image_to_window(game->mlx, game->img.player_left,
+			x * game->img_size, y * game->img_size);
+		mlx_image_to_window(game->mlx, game->img.player_front,
+			x * game->img_size, y * game->img_size);
+		mlx_image_to_window(game->mlx, game->img.player_back,
+			x * game->img_size, y * game->img_size);
 		rotate_player(0, game);
 	}
 	if (l == 2)
 	{
-		mlx_image_to_window(game->mlx, game->img.exit, x * game->img_size, y
-				* game->img_size);
+		mlx_image_to_window(game->mlx, game->img.exit,
+			x * game->img_size, y * game->img_size);
 	}
 }
 

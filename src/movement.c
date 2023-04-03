@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 11:00:53 by antmoren          #+#    #+#             */
-/*   Updated: 2023/03/14 18:20:30 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/04/03 12:03:14 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,13 +86,15 @@ void	make_move(int n, int sign, t_game *game)
 	game->steps++;
 	move_player_img(n, sign, game);
 	if ((game->map.coords[game->player_pos_y + (n == 1) * sign
-			/ 64][game->player_pos_x + (n == 2) * sign / 64] != 'C'))
+				/ 64][game->player_pos_x + (n == 2) * sign / 64] != 'C'))
+	{
 		printf("Steps: %d | Score: %d\n", (game->steps), game->score);
+	}
 }
 
 void	move_player(mlx_key_data_t keydata, void *param)
 {
-	t_game *game;
+	t_game	*game;
 
 	(void)keydata;
 	game = param;
