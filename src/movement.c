@@ -6,7 +6,7 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 11:00:53 by antmoren          #+#    #+#             */
-/*   Updated: 2023/04/03 12:03:14 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/04/12 19:56:38 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,16 +105,16 @@ void	move_player(mlx_key_data_t keydata, void *param)
 		mlx_close_window(game->mlx);
 		exit(EXIT_FAILURE);
 	}
-	if (mlx_is_key_down(game->mlx, MLX_KEY_W)
+	else if (mlx_is_key_down(game->mlx, MLX_KEY_W)
 		&& game->map.coords[game->player_pos_y - 1][game->player_pos_x] != '1')
 		make_move(1, -64, game);
-	if (mlx_is_key_down(game->mlx, MLX_KEY_S)
+	else if (mlx_is_key_down(game->mlx, MLX_KEY_S)
 		&& game->map.coords[game->player_pos_y + 1][game->player_pos_x] != '1')
 		make_move(1, 64, game);
-	if (mlx_is_key_down(game->mlx, MLX_KEY_A)
+	else if (mlx_is_key_down(game->mlx, MLX_KEY_A)
 		&& game->map.coords[game->player_pos_y][game->player_pos_x - 1] != '1')
 		make_move(2, -64, game);
-	if (mlx_is_key_down(game->mlx, MLX_KEY_D)
+	else if (mlx_is_key_down(game->mlx, MLX_KEY_D)
 		&& game->map.coords[game->player_pos_y][game->player_pos_x + 1] != '1')
 		make_move(2, 64, game);
 	check_score(game, 0, 0);

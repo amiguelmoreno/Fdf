@@ -6,23 +6,23 @@
 /*   By: antmoren <antmoren@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/01 20:08:35 by antmoren          #+#    #+#             */
-/*   Updated: 2023/04/03 11:28:15 by antmoren         ###   ########.fr       */
+/*   Updated: 2023/04/12 17:44:56 by antmoren         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/so_long.h"
 
 // LEAKS
-/* void	ft_void(void)
+void	ft_void(void)
 {
 	system("leaks -q so_long");
 }
-		atexit(ft_void); */
 
 int	main(int argc, char **argv)
 {
 	t_game	game;
 
+	atexit(ft_void); 
 	if (argc == 2)
 	{
 		mlx_set_setting(MLX_STRETCH_IMAGE, true);
