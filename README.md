@@ -12,9 +12,8 @@
 	<img alt="GitHub top language" src="https://img.shields.io/github/languages/top/Falitomal/So_long?color=blue" />
 	<img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Falitomal/So_long?color=green" />
 </p>
-# so_long
 
-![so long 42_preview](/readme/so_long_preview.png)
+![so long 42_preview](/so_long-preview.png)
 
 This is a small game project from 42school implemented using MLX42 ( a version customized of MiniLibX).
 
